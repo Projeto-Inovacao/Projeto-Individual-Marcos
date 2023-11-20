@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <title>NOCLINE - Cadastro de Colaboradores</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/metro logo.png" type="image/x-icon">
+
+    <!-- SWEET ALERT -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-employees-image">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Cadastro dos Colaboradores</h1>
+                            </div>
+                            <form class="user">
+                                <div class="form-group">
+                                    <input type="name" class="form-control form-control-user" id="input_codigo_empresa"
+                                        placeholder="Código da Empresa" readonly="true">
+                                </div>
+                                <div class="form-group">
+                                    <input type="name" class="form-control form-control-user"
+                                        id="input_nome_colaborador" placeholder="Nome Completo">
+                                </div>
+                                <div class="form-group">
+                                    <input type="name" class="form-control form-control-user" id="input_cpf_colaborador"
+                                        placeholder="CPF">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user"
+                                        id="input_email_colaborador" placeholder="Endereço de Email ">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user"
+                                        id="input_celular_colaborador" placeholder="Telefone Celular ">
+                                </div>
+                                <div class="form-group">
+                                    <h8 style="font-size: 15px; margin-left: 16px;">Setor</h8>
+                                    <div class="col-sm-6 mb-3 mb-sm-0" style="margin-left: 16px;">
+                                        <input id="input_setor1" type="radio" name="opcao" value="CCO">
+                                        <h8 style="font-size: 13px; ">CCO</h8>
+                                        <input id="input_setor2" style="margin-left: 10px;" type="radio" name="opcao"
+                                            value="SSO">
+                                        <h8 style="font-size: 13px;">SSO</h8>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row" style="width: 560px; margin-left: 1px;">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="input_senha_colaborador" placeholder="Senha">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="input_confirmSenha_colaborador" placeholder="Confirmação de senha">
+                                    </div>
+                                </div>
+                                <a class="btn btn-primary btn-user btn-block" onclick="cadastrarColaborador1()">
+                                    Confirmar Cadastro de Colaborador
+                                </a>
+                                <hr>
+
+                            </form>
+
+                            <!-- <div class="text-center">
+                                <a class="small" href="forgot-password.html">Esqueceu sua senha?</a>
+                            </div> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
+<script>
+
+    input_codigo_empresa.value = sessionStorage.ID_EMPRESA
+
+    function cadastrarColaborador1() {
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var codigoCVar = input_codigo_empresa.value;
+        var nomeCVar = input_nome_colaborador.value;
+        var emailCVar = input_email_colaborador.value;
+        var cpfVar = input_cpf_colaborador.value;
+        var senhaCVar = input_senha_colaborador.value;
+        var celularCVar = input_celular_colaborador.value;
+        var setorCVar = "CCO"
+        if (input_setor2.checked) {
+            setorCVar = "SSO"
+        }
+
+
+
+        // if (nomeCVar == "" || emailCVar == "" || senhaCVar == "" || celularCVar == "" || setorCVar == ""|| cpfVar == "" ) {
+
+        //     mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        //     return false;
+        // }
+
+        fetch("/usuarios/cadastrarColaborador1", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeCServer: nomeCVar,
+                emailCServer: emailCVar,
+                cpfCServer: cpfVar,
+                senhaCServer: senhaCVar,
+                celularCServer: celularCVar,
+                setorCServer: setorCVar,
+                codigoCServer: codigoCVar
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Cadastro de um novo membro da equipe realizado com sucesso!',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+                setTimeout(() => {
+                    window.location = "tables-employees.html";
+                }, "2000")
+
+                limparFormulario();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+        // Enviando o valor da nova input
+    }
+
+</script>

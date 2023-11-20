@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NOCLINE - Cadastro</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/metro logo.png" type="image/x-icon">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-employees-image">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Exclusão de Acesso de Colaboradores</h1>
+                            </div>
+                            <form class="user">
+                                <div class="form-group">
+                                    <input type="name" class="form-control form-control-user" id="input_cdEmp"
+                                        placeholder="Código Empresa">
+                                </div>
+                                <div class="form-group">
+                                    <input type="name" class="form-control form-control-user" id="input_cdCol"
+                                        placeholder=" ID do Colaborador" oninput="pesquisarColaborador()">
+                                </div>
+                                <div class="form-group">
+                                    <input type="name" class="form-control form-control-user" id="input_nomeCol"
+                                        placeholder=" Nome do Colaborador">
+                                </div>
+
+                                <a class="btn btn-primary btn-user btn-block" onclick="excluirColaborador()">
+                                    Confirmar Exclusão de Colaborador
+                                </a>
+                                <hr>
+
+                            </form>
+
+                            <!-- <div class="text-center">
+                                <a class="small" href="forgot-password.html">Esqueceu sua senha?</a>
+                            </div> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
+<script>
+    input_cdEmp.value = sessionStorage.ID_EMPRESA
+
+    function pesquisarColaborador() {
+
+        idEmpresa = input_cdEmp.value
+        idColaborador = input_cdCol.value
+
+        console.log("teste")
+        fetch(`/empresas/listarFuncionarioPorId/${idEmpresa}/${idColaborador}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    input_nomeCol.value = ""
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    dados = resposta[0]
+
+                    input_nomeCol.value = dados.nome
+
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
+
+    function excluirColaborador() {
+
+        alert("Você tem certeza que deseja excluir o colaborador: " + input_nomeCol.value + " ?")
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var id = input_cdCol.value;
+        var codigo = input_cdEmp.value;
+
+
+
+        // if (nomeCVar == "" || emailCVar == "" || senhaCVar == "" || celularCVar == "" || setorCVar == ""|| cpfVar == "" ) {
+
+        //     mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        //     return false;
+        // }
+
+        fetch("/usuarios/excluirColaborador", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idServer: id,
+                cdEmpServer: codigo
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                alert("Exclusão do colaborador realizada com sucesso!");
+
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "index.html";
+                }, "2000")
+
+                limparFormulario();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+        // Enviando o valor da nova input
+    }
+
+</script>

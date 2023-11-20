@@ -1,0 +1,842 @@
+/* PARTE MOBILE */
+@media only screen and (max-width: 600px) {
+
+    /* Começo cabeçalho mobile */
+    .paiCabecalho {
+        /*         
+        width: 100%;
+        margin: auto; */
+        width: 100%;
+        height: 7vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+    }
+
+    .filhoCabecalho {
+        width: 90%;
+        height: 7vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .esquerdaCabecalho {
+        width: 20vw;
+        height: 7vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .direitaCabecalho {
+        width: 60vw;
+        height: 4vh;
+    }
+
+    .direitaCabecalho.a {
+        font-size: 50px;
+    }
+
+    #imgEsquerdaCabecalho {
+        width: 30vw;
+        height: 3.2vh;
+    }
+
+    #imgDireitaCabecalho {
+        width: 3vw;
+        height: 2vh;
+    }
+
+    .dropdown-content {
+        /* width: 10px; */
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 100px;
+        margin-left: -50px;
+        padding: 10px 10px;
+        z-index: 1;
+        font-size: 10px;
+        justify-content: center;
+        text-align: center;
+
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* fim cabeçalho mobile */
+
+    /* Começo Banner mobie */
+    .paiBanner {
+        height: 15rem !important;
+
+
+    }
+
+
+    .divBoxTextoBanner {
+        margin: 0;
+        height: 100%;
+        margin-left: 5.5rem !important;
+    }
+
+    .pTituloBanner {
+
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .textoBanner {
+        font-size: 0.70rem;
+        /*mudar tamanho textoBanner*/
+        text-align: center;
+    }
+
+    .divBoxBotaoBanner {
+        height: 20%;
+    }
+
+    .botaoBanner {
+        width: 75%;
+        height: auto;
+    }
+
+    .botao1Banner {
+        width: 4rem;
+        height: 2rem;
+        padding: 0 0.4rem;
+        font-size: 9px;
+    }
+
+    span .texto {
+        width: 100%;
+    }
+
+    .botao2Banner {
+        width: 4rem;
+        height: 2rem;
+        padding: 0 0.4rem;
+        font-size: 9px;
+    }
+
+    .titulo {
+        width: 70%;
+        height: 2vh;
+    }
+
+    .titulo h1 {
+        font-size: 10px;
+        margin-bottom: 7px;
+    }
+
+    /* fim banner mobile */
+
+    /* Começo Sobre nos */
+    .fundoEntenda {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .sobrenos {
+        width: 50%;
+        top: 0vh;
+        left: 7rem;
+        text-align: center;
+
+    }
+
+    .subtitulo {
+        width: 70%;
+        top: 1vh;
+        left: 6.5rem;
+
+    }
+
+    .fundoEntenda img {
+        width: 1.5rem;
+        height: 1.5rem;
+        position: relative;
+        right: 0vw;
+        top: 7vh;
+
+    }
+
+    .main-div {
+        display: flex;
+    }
+
+    .right-side {
+        padding: 1rem;
+
+    }
+
+
+    .right-side>div {
+        left: 0;
+        height: 17vh;
+        /*aqui para mudar posição*/
+        bottom: 2rem;
+        width: 10vw;
+        right: 7rem;
+
+    }
+
+    .right-side p {
+        top: 2.5rem;
+        position: relative;
+        width: 40vw;
+        left: rem;
+        font-size: 0.8rem;
+        text-align: start;
+    }
+
+    .right-side h2 {
+        top: 2rem;
+        /*aqui*/
+        left: 2.7rem;
+        position: relative;
+        font-size: 1.3rem;
+    }
+
+
+    .left-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: justify;
+        padding: 1rem;
+    }
+
+    .left-side p {
+        width: 45vw;
+        text-align: end;
+        font-size: 0.8rem;
+        font-weight: bolder;
+    }
+
+
+    /* Fim do Sobre nos */
+
+
+    /* começo entenda como trabalhamos mobile */
+    .imagemEntenda {
+        height: 35vh;
+        width: 100%;
+    }
+
+    .fundoEntenda {
+        height: 40rem;
+        width: 100vw;
+    }
+
+    .textoEntenda {
+        height: 9rem;
+    }
+
+    .tituloEntenda {
+        position: relative;
+        top: 80%;
+        width: 100vw;
+    }
+
+    .tituloEntenda p {
+        font-size: 13px;
+        width: 100vw;
+    }
+
+    .subtituloEntenda {
+        position: relative;
+        top: 65%;
+        width: 100vw;
+    }
+
+    .subtituloEntenda p {
+        font-size: 11px;
+        width: 100vw;
+    }
+
+    .divQuadrados {
+        height: 80vh;
+        align-items: center;
+        flex-direction: column;
+        width: 100vw;
+        position: relative;
+        background-color: transparent;
+        margin: 0;
+        top: 6.5%;
+    }
+
+    .idDetalhes {
+        font-size: 2.5vw;
+        top: -5%;
+        margin-bottom: 3%;
+    }
+
+    .botaoSaibaMais {
+        width: 30vw;
+        height: 3vh;
+    }
+
+    .txtDetalhes {
+        font-size: 0.5rem;
+    }
+
+    .QuadradoEsquerda {
+        background-size: 100%;
+        height: 25%;
+        width: 65%;
+    }
+
+    .hidden-text {
+        font-size: 0.7rem;
+        margin: 0 !important;
+    }
+
+    .QuadradoMeio {
+        background-size: 120%;
+        height: 25%;
+        width: 65%;
+    }
+
+    .hidden-textM {
+        font-size: 0.7rem;
+    }
+
+    .QuadradoDireita {
+        background-size: 100%;
+        height: 25%;
+        width: 65%;
+    }
+
+    .hidden-textD {
+        font-size: 0.7rem;
+    }
+
+    .faixapreta {
+        top: 33.5%;
+        height: 8.5vh;
+    }
+
+    .faixapretaM {
+        top: 33.5%;
+        height: 8.5vh;
+    }
+
+    .faixapretaD {
+        top: 33.5%;
+        height: 8.5vh;
+    }
+
+    /* fim entenda como trabalhamos mobile */
+
+    /* Começo porque nos escolher mobile */
+    .Div_filtro {
+        height: 50rem !important;
+    }
+
+    .Cards_PNE {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 150vh;
+        position: relative;
+        top: 0.5rem;
+    }
+
+    .Cards_PNE .card {
+        margin: auto;
+        width: 65vw;
+        height: 30vh;
+    }
+
+    .card img {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .card h3 {
+        font-size: 0.9rem;
+    }
+
+    .card p {
+        font-size: 0.75rem;
+    }
+
+    .Tit_PNE {
+        height: auto;
+        font-size: 0.45rem;
+    }
+
+    .Tit_PNE h1 {
+        margin: auto;
+        color: #fff;
+        position: relative;
+        font-size: large;
+    }
+
+    .Tit_PNE h3 {
+        margin-top: 1rem;
+        margin-top: 20px;
+        color: rgb(255, 255, 255);
+        position: relative;
+        top: -70%;
+        font-size: medium;
+    }
+
+    .Div_PqNosEscolher {
+        background-image: url(../assets/banner.png);
+        background-size: cover;
+        width: 100%;
+        height: 90rem !important;
+        z-index: 0;
+    }
+
+    .card {
+        margin-top: 3rem;
+        margin-left: 1.5rem;
+    }
+
+    .Div_filtro {
+        position: relative;
+        bottom: 0rem;
+        width: 100vw;
+
+    }
+
+    /* fim porque nos escolher mobile */
+
+    /* Começo da nossa equipe mobile */
+    .titulo {
+        width: 75%;
+        top: 5rem;
+        height: 308vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: #ffffffaf solid 1px;
+        background-color: white;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        margin-bottom: 60px;
+        z-index: 999;
+        position: relative;
+        border-radius: 1rem;
+
+
+    }
+
+    .titulo h4 {
+        font-size: 20px;
+        margin-bottom: 7px;
+
+    }
+
+    .titulo h3 {
+        font-size: 20px;
+
+    }
+
+    .all-membros {
+        height: 280vh;
+
+    }
+
+    .cards-equipe {
+        flex-direction: column;
+
+    }
+
+
+    /* área com as fotos dos integrantes */
+    .card-foto {
+        height: 38vh;
+        width: 37vw;
+    }
+
+    /* função dos integrantes */
+    .texto3 {
+        bottom: 0vh;
+    }
+
+    /* fim da nosssa equipe mobile */
+
+    /* Inicio Planos mobile*/
+
+    .Div_Planos {
+        height: 75rem;
+    }
+
+    .Tit_Planos {
+        width: 100vw;
+        height: 10rem;
+        flex-direction: column;
+        top: 0.5rem;
+    }
+
+    .Tit_Planos h1 {
+        position: relative;
+        bottom: 2vh;
+        font-size: xx-large;
+    }
+
+    .Tit_Planos h3 {
+
+        font-size: large;
+    }
+
+    .Tit_Planos h4 {
+
+        position: relative;
+        bottom: 3vh;
+        font-size: large;
+    }
+
+    .Cards_Planos {
+        height: 60rem;
+        bottom: 0vh;
+        flex-direction: column;
+    }
+
+
+    /* fim planos */
+
+    /* Inicio Avaliacoes*/
+
+    .Div_avaliacoes {
+        width: 100%;
+        height: 78rem;
+        z-index: 0;
+        position: relative;
+        top: 1rem;
+    }
+
+    .Tit_avaliacoes {
+        flex-direction: column;
+    }
+
+
+    .Cards_avaliacoes {
+        width: 100%;
+        height: 65rem;
+        bottom: 0vh;
+        flex-direction: column;
+    }
+
+    .Cards_avaliacoes .card_avaliacoes {
+        width: 22rem;
+        height: 21rem;
+        background-color: #000000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 1rem;
+    }
+
+    .foto {
+        height: 7vh;
+    }
+
+    /* fim Avaliacoes */
+
+
+    /* começo do comece conosco mobile */
+    .paiComeceConosco {
+        /* height: 19vh; */
+        display: flex;
+        width: 100%;
+        height: 19vh;
+
+
+    }
+
+
+.filhoComeceConosco {
+    display: flex;
+    width: 90%;
+    height: 60%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.esquerdaComeceConosco {
+    width: 50%;
+    height: 20%;
+}
+
+.boxTextoComeceConosco {
+    width: 96%;
+    height: 40%;
+    position: relative;
+    top: 1vh;
+    left: -16vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#pComeceConosco {
+    font-size: 20px;
+
+}
+
+#textoComece {
+    font-size: 10px;
+}
+
+#botaoComeceConosco {
+    width: 25vw;
+    height: 3vh;
+    font-size: 10px;
+
+}
+
+#botaoComeceConosco:hover {
+    background-color: #ffffff;
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+    color: black;
+    transform: translateY(-7px);
+}
+
+/* fim do comece conosco */
+
+/* começo do rodape */
+
+.rodape {
+    display: flex;
+    width: 100%;
+    height: 68rem;
+}
+
+#faleConosco {
+    font-size: 2rem;
+}
+
+.notes {
+    position: relative;
+    width: auto;
+    max-width: 300px;
+    min-height: 150px;
+    background: #0e0c0c;
+    color: #333;
+    padding: 20px;
+    margin: 20px 0;
+    outline: none;
+    border-radius: 5px;
+
+}
+
+.container {
+    display: flex;
+    width: 85vw;
+    padding: 1rem;
+    position: relative;
+}
+
+.lista {
+    position: relative;
+    flex: 1;
+    padding: 0px;
+    left: 1rem;
+
+}
+
+.lista h4 {
+    margin: 1rem;
+}
+
+.lista li {
+    padding: 1px;
+    width: 9rem;
+    list-style: none;
+    text-decoration: none;
+    position: relative;
+    right: 5vw;
+}
+
+.lista li:hover {
+    transform: scale(1.03);
+    transition: 0.5s ease-in-out;
+}
+
+.feedbackForm {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    z-index: 99;
+    right: 4rem;
+    top: 509rem;
+    height: 17.5rem;
+    width: 9rem;
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding: 4.2rem;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 30px 25px -5px, rgba(0, 0, 0, 0.06) 0px 10px 10px -5px;
+}
+
+.feedbackForm ::placeholder {
+    padding-left: 0.5rem;
+}
+
+.input-group {
+    position: relative;
+
+}
+
+.input-group__input {
+    padding: 20px;
+    margin: 10px;
+    width: 7rem;
+    right: 1rem;
+    position: relative;
+    outline: none;
+    height: 10px;
+    border: 0;
+    border-bottom: 2px solid rgb(33, 32, 32);
+    text-align: start;
+    font-size: medium;
+    background-color: transparent;
+    transition: border-bottom 500ms;
+
+
+}
+
+.input-group__input:is(:focus, :valid) {
+    border-bottom: 2px solid rgb(0, 0, 0);
+
+}
+
+.input-group__label {
+    right: 10rem;
+    position: absolute;
+    top: 3vh;
+    left: 0;
+    transform: translate(10px, 10px);
+    transform-origin: left;
+    transition: transform 0.25s;
+
+}
+
+.input-group__input:focus+.input-group__label,
+.input-group__input:valid+.input-group__label {
+    transform: translate(0, -14px) scale(0.9);
+    color: #000000;
+}
+
+.enviarMensagem {
+    color: white;
+    font-size: 15px;
+    background-color: black;
+    position: absolute;
+    top: 27.5rem;
+    right: 3.8rem;
+    height: 2rem;
+    width: 10rem;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.enviarMensagem:hover {
+    box-shadow: 0px 5px 10px rgb(138, 138, 138);
+    transform: translateY(-7px);
+}
+
+.faleConosco {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 40px;
+}
+
+.material-symbols-outlined {
+
+    position: relative;
+    top: 1vh;
+
+
+}
+
+#iconFaleConosco {
+
+    position: relative;
+    top: 1vh;
+
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    text-decoration: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.divIcon {
+    display: flex;
+    padding: 15px;
+}
+
+.icon {
+    display: flex;
+    width: 1.5rem;
+    height: 1.2rem;
+    padding: 5px;
+    transition: 0.2s ease-in-out;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+
+}
+
+.links a:hover {
+    font-size: 12px;
+}
+
+.iconFace {
+    display: flex;
+    width: 1rem;
+    height: 1.3rem;
+    padding: 0px;
+    margin-top: -1px;
+}
+
+.copyright {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid gray;
+}
+
+.copyright span {
+    justify-content: space-around;
+    padding: 20px;
+    font-size: 0.8rem;
+}
+
+
+.copyright #nocline {
+    height: 2rem;
+}
+
+/* fim do rodape */
+
+/* fim do rodape */
+
+}

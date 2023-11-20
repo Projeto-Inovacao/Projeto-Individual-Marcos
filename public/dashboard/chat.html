@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NOCLINE - Tabela de Visualização de Processos</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/metro logo.png" type="image/x-icon">
+
+</head>
+
+<body id="page-top" onload="validarSessao(), atualizarFeed()">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+
+        <!-- Sidebar -->
+
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon" style="margin-bottom: 2%;">
+                    <img id="logoNoc" src="img/logo branca.png">
+                </div>
+
+                <div class="sidebar-brand-text mx-3"></div>
+            </a>
+
+            <li class="nav-item active" style="height: 2%;">
+                <i style="color: white; margin-left: 15%; margin-top: 3%; font-weight: 800; font-size: 13px;">Código
+                    Empresarial:</i> <span id="b_usuario" style="color: rgb(255, 255, 255); font-weight: 800;"></span>
+            </li>
+
+            <!-- Divider -->
+
+            <li class="nav-item" style="margin-top: 2%;">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities4"
+                    aria-expanded="true" aria-controls="collapseUtilities4">
+                    <i class="fas fa-desktop" style="color: white;"></i>
+                    <span style="color: white;"><b>Perspectiva Geral</b></span>
+                </a>
+                <div id="collapseUtilities4" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Você pode visualizar:</h6>
+                        <a class="collapse-item" href="../dashboard/dash-linhas.html">Visão Macro</a>
+                        <a class="collapse-item" href="">Visão Setorial</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4"
+                    aria-expanded="true" aria-controls="collapsePages4">
+                    <i class="fas fa-fw fa-tachometer-alt" style="color: white;"></i>
+                    <span style="color: white;"><b>Perspectiva Específica</b></span>
+                </a>
+                <div id="collapsePages4" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Você pode visualizar:</h6>
+                        <a class="collapse-item" href="../dashboard/index.html">Visão Micro</a>
+                        <a class="collapse-item" href="../dashboard/dash-temperatura.html">CPU x Temperatura</a>
+                        <a class="collapse-item" href="">miguel</a>
+                        <a class="collapse-item" href="">rita</a>
+                        <a class="collapse-item" href="">marcos</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesJanela"
+                    aria-expanded="true" aria-controls="collapsePagesJanela">
+                    <img id="icons" src="img/windows-close.png">
+                    <span style="color: white;"><b>Janelas</b></span>
+                </a>
+                <div id="collapsePagesJanela" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Você pode visualizar:</h6>
+
+                        <a class="collapse-item" href="" id="cadastro_colab">Cadastrar
+                            Janelas</a>
+                        <a class="collapse-item" href="tables-janelas.html">Visualizar Janelas</a>
+
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+            <!-- Divider -->
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <img id="icons" src="img/icon-colaboradores.png">
+                    <span style="color: white;"><b>Colaboradores</b></span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Você pode:</h6>
+                        <a class="collapse-item" href="register-employees.html" id="cadastro_colab">Cadastrar
+                            Colaboradores</a>
+                        <a class="collapse-item" href="tables-employees.html">Visualizar Colaboradores</a>
+                        <a class="collapse-item" href="update-employees.html" id="atualizar_colab"> Atualizar
+                            Colaboradores</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <img id="icons" src="img/icon-maquina.png">
+                    <span style="color: white;"><b>Máquinas</b></span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Você Pode:</h6>
+                        <a class="collapse-item" href="register-machines.html" id="cadastro_maq">Cadastrar Máquinas</a>
+                        <a class="collapse-item" href="tables-machines.html">Visualizar Máquinas</a>
+                        <a class="collapse-item" href="update-machines.html" id="atualizar_maq">Atualizar Máquinas</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <img id="icons" src="img/icon-linhas.png">
+                    <span style="color: white;"><b>Linhas</b></span>
+                </a>
+                <div id="collapsePages2" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Você Pode:</h6>
+                        <a class="collapse-item" href="register-linhas.html" id="cadastro_maq">Cadastrar Linhas</a>
+                        <a class="collapse-item" href="dash-linhas.html">Visualizar Linhas</a>
+                        <a class="collapse-item" href="update-linhas.html" id="atualizar_maq">Atualizar Linhas</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="chat.html">
+                    <img id="icons" src="img/icon-chat.png">
+                    <span>Mural</span></a>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <img id="icons" src="img/icon-suporte.png">
+                    <span style="color: white;"><b>Fale Conosco</b></span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Você pode:</h6>
+                        <a class="collapse-item" href="suporte.html">Solicitar Suporte</a>
+                        <a class="collapse-item" href="feedback.html">Enviar Avaliação</a>
+                        <a class="collapse-item" href="reuniao.html">Agendar Reunião</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+            <!-- <div class="sidebar-card d-none d-lg-flex">
+                <img class="sidebar-card-illustration mb-2" src="img/logotipo-do-metro.png" style="width: 25px; height: 25px;">
+                <p class="text-center mb-2"><strong>O código da sua empresa é:</strong> <a target="_blank">xxxx</a></p>
+            </div> -->
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <!-- <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form> -->
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Central de Alertas
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Centro de Mensagens
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="n_usuario"></span>
+                                <img class="img-profile rounded-circle" src="img/usuario.png">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="profile.html">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Perfil
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Configurações
+                                </a>
+                                <!-- <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a> -->
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"
+                                    href="/public/index.html">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+
+                    <div class="d-sm-flex align-items-center justify-content-between mb-3">
+                        <h1 class="h3 mb-4 text-gray-800" style="margin-left: 20px;">Publicar um Aviso</h1>
+
+                    </div>
+                    <div class="container-fluid">
+
+                        <!-- Page Heading -->
+
+                        <p class="mb-4">Apreciamos o seu contato eficiente com os seus funcionários, por isso
+                            disponibilizamos no nosso sistema um chat de avisos onde você pode compartilhar informações
+                            importantes, comunicados, e atualizações relevantes sobre as máquinas para manter toda a
+                            equipe bem informada e
+                            alinhada com as práticas de monitoramento da empresa. Este recurso visa facilitar a
+                            comunicação interna,
+                            promovendo a transparência e fortalecendo a conexão entre a gestão e os colaboradores.
+
+                        </p>
+
+
+                    </div>
+                    <div id="card-maior">
+                        <div class="avisos">
+                            <div class="container">
+                                <div class="div-form">
+                                    <div id="form_postagem" style="margin-left: -27px;"  method="post" onsubmit="return publicar()">
+                                        <label>
+                                            Título do aviso:
+                                            <br>
+                                            <input name="titulo" id="titulo_form" maxlength="100" type="text"
+                                                style="width: 900px;">
+                                        </label>
+                                        <br>
+                                        <label>
+                                            Descrição (máximo de 300 caracteres):
+                                            <br>
+                                            <textarea name="descricao" id="descricao_form" maxlength="300" rows="5"
+                                                style="width: 900px;"></textarea>
+                                        </label>
+                                        <br>
+                                        <button onclick=" return publicar()"
+                                            style="border-radius: 3px; color: white; background-color: black; ">Enviar</button>
+                                    </div>
+                                </div>
+                                <h1 class="h3 mb-4 text-gray-800" style="margin-top: 40px; margin-left: -29px;">Mural de
+                                    Avisos</h1>
+
+                                </div>
+                                <div class="div-results" style="margin-left: -5px;">
+                                    <div id="feed_container" class="feed-container">
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+
+                    <div id="popup" style="display: none; position: fixed; top: 50%; left: 58%; transform: translate(-50%, -50%); background-color: rgba(0, 6, 127, 0.697); padding: 20px; border: 1px solid #ccc; z-index: 999; width: 700px; height: 400px;">
+                        <!-- Conteúdo do pop-up (se necessário) -->
+                        <!-- Este exemplo está vazio, você pode adicionar mais conteúdo se necessário -->
+                        <h1 style="color: white; font-size: 24px; font-weight: 600;">Edite o Conteúdo da sua Publicação:</h1>
+                    
+                        <label style="color: white;">
+                            Descrição (máximo de 250 caracteres):
+                            <br>
+                            <textarea id="textarea_descricao" maxlength="250" rows="5" style="width: 600px; height: 200px;"></textarea>
+                        </label>
+                        <br>
+                        <div id="pop" class="pop">
+
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+
+        
+
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; NOCLINE 2023</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão atual.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" onclick="limparSessao()" href="../login.html">Sair</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/sessao.js"></script>
+</body>
+
+</html>
+<script>
+
+    // b_usuario.innerHTML = sessionStorage.NOME_COLABORADOR;
+
+    function limparFormulario() {
+        document.getElementById("form_postagem").reset();
+    }
+
+    function publicar() {
+        var id_colaboradorVar = sessionStorage.ID_USUARIO;
+
+
+        var corpo = {
+            titulo: titulo_form.value,
+            descricao: descricao_form.value,
+            fk_colaborador_chat: id_colaboradorVar
+        }
+
+        fetch(`/avisos/publicar/${id_colaboradorVar}`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Post realizado com sucesso !");
+                window.location = "/dashboard/chat.html";
+                limparFormulario();
+                // finalizarAguardar();
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false
+    }
+
+
+    function editar(id_chat) {
+
+        console.log("cliquei em editar - " + id_chat);
+        // window.alert("Você será redirecionado à página de edição do aviso de id número: " + id_chat);
+        // window.location = "/dashboard/edicao-chat.html"
+
+        fetch(`/avisos/editar/${id_chat}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                descricao: textarea_descricao.value
+            })
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.location = "/dashboard/chat.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+
+    }
+ 
+    function exibirPopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "block";
+
+    var btnExibir = document.createElement("button");
+    btnExibir.innerHTML = "Confirmar Edição";
+    btnExibir.style.marginRight = "10px";
+    btnExibir.style.marginLeft = "0px";
+    btnExibir.id = "btnExibir";
+    btnExibir.setAttribute("onclick", "editar(${publicacao.id_chat})");
+
+    var btnFechar = document.createElement("button");
+    btnFechar.innerHTML = "Fechar Edição";
+    btnFechar.style.marginRight = "10px";
+    btnFechar.style.marginLeft = "0px";
+    btnFechar.id = "btnFechar";
+
+
+    fetch("/avisos/listar")
+        .then(function (resposta) {
+            if (resposta.ok) {
+                return resposta.json();
+            } else {
+                throw 'Houve um erro na API!';
+            }
+        })
+        .then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+            var feed = document.getElementById("pop");
+            feed.innerHTML = "";
+
+            if (resposta.length === 0) {
+                var mensagem = document.createElement("span");
+                mensagem.innerHTML = "Nenhum resultado encontrado.";
+                feed.appendChild(mensagem);
+            } else {
+                for (let i = 0; i < resposta.length; i++) {
+                    var publicacao = resposta[i];
+
+                    var divButton = document.createElement("div");
+                    divButton.style.marginBottom = "10px";
+                    btnExibir.setAttribute("onclick", `editar(${publicacao.id_chat})`);
+                    btnFechar.setAttribute("onclick", `fecharPopup()`);
+                    divButton.appendChild(btnExibir); // Append the button to the div
+                    divButton.appendChild(btnFechar); // Append the button to the div
+                    feed.appendChild(divButton);
+                }
+            }
+        })
+        .catch(function (resposta) {
+            console.error(resposta);
+        });
+}
+
+
+
+    
+
+    function fecharPopup() {
+    // Ocultar a div de pop-up
+    var popup = document.getElementById("popup");
+    popup.style.display = "none";
+}
+
+    function deletar(id_chat) {
+        console.log("Criar função de apagar post escolhido - ID" + id_chat);
+        fetch(`/avisos/deletar/${id_chat}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.location = "/dashboard/chat.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+    function atualizarFeed() {
+        fetch("/avisos/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+                    feed.innerHTML = "";
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+
+                        /*                        <div class="card shadow mb-4" style="width: 1000px;">
+                                                        <div class="card-header py-3">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Otimizando o Desempenho da CPU:</h6>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <b>Encerre Aplicativos Não Essenciais:</b>
+                                                            Feche programas em segundo plano que não são necessários.<br>
+                                                            <b>Verifique Atualizações:</b>
+                                                            Mantenha o sistema operacional e aplicativos atualizados para melhorar a eficiência.
+                                                        </div>
+                                                    </div>*/
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var divPublicacao = document.createElement("div");
+                        var divTitulo = document.createElement("div")
+
+                        var h6Titulo = document.createElement("h6");
+                        var spanNome = document.createElement("span");
+                        var divDescricao = document.createElement("div");
+                        var divButtons = document.createElement("div");
+                        var btnEditar = document.createElement("button");
+                        var btnExibir = document.createElement("button");
+                        var btnDeletar = document.createElement("button");
+                        
+                        // ATRIBUINDO CLASSES
+                        divPublicacao.className = "card shadow mb-4";
+                        divPublicacao.style.width = "1000px";
+                        divDescricao.className = "card-body";
+                        
+                        btnEditar.style.borderRadius = "3px" 
+                        btnEditar.style.color = "white" 
+                        btnEditar.style.backgroundColor = "black" 
+                        btnEditar.style.marginRight = "10px" 
+                        btnEditar.style.marginLeft = "25px" 
+
+                        btnExibir.style.marginRight = "10px" 
+                        btnExibir.style.marginLeft = "25px" 
+                        btnExibir.style.display = "none" 
+                        
+                        btnDeletar.style.borderRadius = "3px" 
+                        btnDeletar.style.color = "white" 
+                        btnDeletar.style.backgroundColor = "black" 
+                        
+                        divButtons.style.marginBottom = "10px"
+
+                        divTitulo.style.marginLeft = "10px"
+                        divTitulo.style.marginRight = "10px"
+                        
+                        divTitulo.className = "card-header py-3";
+                        h6Titulo.className = "m-0 font-weight-bold text-primary";
+
+                        h6Titulo.innerHTML = "<br/>" + "Autor:  " + publicacao.nome + "<br/><br/>" + " Título:  " + publicacao.titulo;
+                        divDescricao.innerHTML = publicacao.descricao;
+                        btnEditar.innerHTML = "Editar";
+                        btnDeletar.innerHTML = "Deletar";
+                        btnExibir.innerHTML = "Exibir";
+
+                        
+                        btnEditar.id = "btnEditar" + publicacao.id_chat;
+                        btnEditar.setAttribute("onclick", `exibirPopup(${publicacao.id_chat})`);
+
+                        btnExibir.id = "btnExibir" + publicacao.id_chat;
+                        btnExibir.setAttribute("onclick", `editar(${publicacao.id_chat})`);
+
+                        btnDeletar.id = "btnDeletar" + publicacao.id_chat;
+                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.id_chat})`);
+
+                        // divPublicacao.appendChild(spanID);
+                        // divPublicacao.appendChild(spanNome);
+                        divPublicacao.appendChild(h6Titulo);
+                        divPublicacao.appendChild(divDescricao);
+                        divPublicacao.appendChild(divButtons);
+                        divButtons.appendChild(btnExibir);
+                        divButtons.appendChild(btnEditar);
+                        divButtons.appendChild(btnDeletar);
+                        feed.appendChild(divPublicacao);
+                    }
+
+                    //finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            //finalizarAguardar();
+        });
+    }
+
+    function atualizarPop() {
+        fetch("/avisos/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("pop");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("pop");
+                    feed.innerHTML = "";
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+                   
+                        var divButtons = document.createElement("div");
+                        var btnExibir = document.createElement("button");
+                  
+                        
+                      
+                        btnExibir.style.marginRight = "10px" 
+                        btnExibir.style.marginLeft = "25px" 
+                        
+                        
+                        divButtons.style.marginBottom = "10px"
+
+                    
+                        btnExibir.innerHTML = "Exibir";
+                        
+                     
+
+                        btnExibir.id = "btnExibir" + publicacao.id_chat;
+                        btnExibir.setAttribute("onclick", `editar(${publicacao.id_chat})`);
+
+
+                        // divPublicacao.appendChild(spanID);
+                        // divPublicacao.appendChild(spanNome);
+                       
+                        divButtons.appendChild(btnExibir);
+                        
+                        feed.appendChild(divPublicacao);
+                    }
+
+                    //finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            //finalizarAguardar();
+        });
+    }
+
+</script>
