@@ -1,0 +1,25 @@
+Graficos que vou fazer
+
+Gráfico de Barras de Utilização de CPU por Processo:Utilize os dados do Python para criar um gráfico de barras que mostra a utilização da CPU por processo. Cada barra representa um processo específico.
+
+Propósito: Mostrar a utilização da CPU por processo específico.
+
+Ajuda: identificar quais processos estão consumindo mais recursos de CPU em um determinado momento, possibilitando otimizações ou ajustes.
+--------------------------------------------------
+Gráfico de Pizza para Distribuição da Utilização do Disco por Processo:Aproveite os dados do Python para criar um gráfico de pizza que ilustra a distribuição da utilização do disco entre diferentes processos.
+
+Propósito: Ilustrar a distribuição da utilização do disco entre diferentes processos.
+
+Ajuda: identificar quais processos estão realizando operações de leitura ou escrita no disco, permitindo otimizações ou identificação de gargalo
+------------------------------------------------------
+Gráfico de Barras Empilhadas para Distribuição da Utilização da CPU por Tipo de Processo:Combine os dados de distribuição de CPU por tipo de processo do Python com as informações do Kotlin para criar um gráfico de barras empilhadas que mostra a utilização da CPU dividida em diferentes tipos de processos.
+
+Propósito: Mostrar a utilização da CPU dividida em diferentes tipos de processos.
+
+Ajuda: identificar a contribuição de cada tipo de processo para a carga total da CPU, facilitando a compreensão da distribuição de recursos
+------------------------------------------------
+Gráfico de Linha para Frequência do Processador ao Longo do Tempo:Se o código Kotlin coletar dados de frequência do processador, você pode criar um gráfico de linha que mostra como a frequência do processador varia ao longo do tempo.
+
+Propósito: Visualizar como a frequência do processador varia ao longo do tempo.
+
+Ajuda: identificar padrões de variação de frequência do processador, relacionando-os a diferentes cargas de trabalho ou cenários operacionais

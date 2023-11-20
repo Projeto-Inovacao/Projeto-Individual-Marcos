@@ -1,0 +1,75 @@
+faria sentido monitorar o processador das maquinas do metro que contem o software CBTC?
+
+Sim, seria altamente benéfico monitorar o processador das máquinas do metrô que contêm o software CBTC (Communications-Based Train Control), ou Controle de Trens Baseado em Comunicação. O CBTC é um sistema de controle sofisticado utilizado para melhorar a segurança e a eficiência das operações ferroviárias, permitindo a comunicação contínua entre os trens e o sistema de controle central.
+
+Monitorar o processador das máquinas é crucial para garantir que o software CBTC esteja funcionando corretamente e para detectar qualquer possível problema ou falha no sistema. Ao monitorar o processador, é possível identificar potenciais gargalos de desempenho, comportamento anômalo, sobrecarga de CPU, ou qualquer outro problema técnico que possa impactar a segurança ou a eficiência das operações do metrô.
+
+Além disso, ao realizar o monitoramento regular do processador, é possível tomar medidas proativas para evitar falhas no sistema, garantindo a segurança dos passageiros e a continuidade das operações do metrô de forma eficiente. O monitoramento contínuo do processador também pode ajudar a prever possíveis problemas futuros e a implementar estratégias de manutenção preventiva, o que pode reduzir significativamente o tempo de inatividade e os custos associados a reparos não planejados.
+--------------------------------------------------
+
+graficos que vou fazer
+
+
+Gráfico de Barras de Utilização de CPU por Processo:Utilize os dados do Python para criar um gráfico de barras que mostra a utilização da CPU por processo. Cada barra representa um processo específico.
+
+Gráfico de Pizza para Distribuição da Utilização do Disco por Processo:Aproveite os dados do Python para criar um gráfico de pizza que ilustra a distribuição da utilização do disco entre diferentes processos.
+
+Gráfico de Barras Empilhadas para Distribuição da Utilização da CPU por Tipo de Processo:Combine os dados de distribuição de CPU por tipo de processo do Python com as informações do Kotlin para criar um gráfico de barras empilhadas que mostra a utilização da CPU dividida em diferentes tipos de processos.
+
+Gráfico de Linha para Frequência do Processador ao Longo do Tempo:Se o código Kotlin coletar dados de frequência do processador, você pode criar um gráfico de linha que mostra como a frequência do processador varia ao longo do tempo.
+
+------------------------------------------------------
+No que esses graficos ajudam
+
+Identificação de gargalos de desempenho: Os gráficos de uso do processador ao longo do tempo e de utilização da CPU por processo podem ajudar a identificar gargalos de desempenho, permitindo que a equipe de manutenção tome medidas corretivas para melhorar a eficiência do sistema.
+
+Otimização de recursos: Os gráficos de distribuição da utilização da CPU por tipo de processo e de uso de memória ao longo do tempo podem ajudar a otimizar o uso dos recursos do sistema, garantindo que a capacidade de processamento e a memória sejam alocadas de maneira eficiente.
+
+Monitoramento de saúde do sistema: Os gráficos podem servir como indicadores visuais da saúde do sistema, ajudando a equipe de operações a detectar possíveis problemas antes que afetem o funcionamento normal do metrô.
+
+Tomada de decisão proativa: Compreender os padrões de uso do processador e dos recursos do sistema ao longo do tempo pode ajudar os tomadores de decisão a antecipar necessidades futuras e a implementar estratégias de manutenção preventiva.
+
+Melhoria contínua do software CBTC: Os dados coletados e os insights obtidos por meio dos gráficos podem ser usados para aprimorar continuamente o software CBTC, garantindo sua estabilidade, confiabilidade e eficiência operacional.
+------------------------------------------------------
+
+e como isso seria util para as maquinas do metro com o CBTC?
+
+Detecção de anomalias: Gráficos em tempo real ou históricos do desempenho do processador podem ajudar a identificar anomalias, como picos de uso repentinos ou quedas drásticas de desempenho, que podem afetar o funcionamento suave do sistema CBTC.
+
+Prevenção de falhas: Ao monitorar constantemente o desempenho do processador, é possível identificar sinais precoces de possíveis falhas ou problemas de hardware, permitindo a manutenção preventiva e a redução do tempo de inatividade do sistema.
+
+Otimização de recursos: Com gráficos que mostram a carga de trabalho do processador ao longo do tempo, é possível ajustar os recursos de hardware de forma mais eficiente, garantindo que o sistema CBTC tenha capacidade suficiente para operar sem interrupções.
+
+Segurança e eficiência: Ao garantir que o processador funcione dentro de limites aceitáveis e não esteja sobrecarregado, é possível garantir a segurança dos passageiros e a eficiência das operações do metrô, evitando atrasos e interrupções inesperadas.
+
+----------------------------------------------------
+
+python ideias
+
+
+Uso de memória: Monitorar a quantidade de memória RAM utilizada pelos processos Python em execução.
+
+Utilização da CPU: Monitorar a utilização da CPU pelos processos Python em execução.
+
+Tempo de execução: Monitorar o tempo de execução dos scripts Python para identificar gargalos de desempenho.
+
+Utilização de disco: Monitorar a utilização do disco pelos processos Python para garantir que não ocorra sobrecarga.
+
+------------------------------------------------------
+
+Sentido dos codigos de python e kotlin
+
+ Ele mede o tempo de execução de um trecho de código específico e também exibe informações sobre a utilização da CPU e do disco para cada processo em execução no sistema.
+
+Isso pode ser relacionado ao contexto de monitoramento do desempenho de sistemas de metrô com o software CBTC, pois permite a captura de dados relevantes sobre os processos em execução no sistema operacional, incluindo informações sobre a utilização da CPU e do disco.
+
+Combinando essas informações com os dados de desempenho do processador que você está coletando com o código Java, é possível ter uma visão abrangente do desempenho do sistema, permitindo a identificação de gargalos de desempenho, problemas de utilização de recursos e outras métricas importantes para garantir a estabilidade e confiabilidade do sistema de metrô com o software CBTC.
+------------------------------------------------------
+
+User Storys
+
+Como um engenheiro de manutenção, eu quero visualizar gráficos em tempo real do uso do processador e dos recursos do sistema do metrô, para identificar rapidamente possíveis gargalos de desempenho e tomar medidas corretivas imediatas, garantindo um funcionamento suave e seguro do sistema CBTC.
+
+Como um analista de sistemas de transporte, eu quero receber relatórios automatizados sobre as tendências de uso do processador e da memória ao longo do tempo, para poder planejar proativamente a alocação de recursos e melhorar a eficiência operacional do sistema de metrô com o software CBTC.
+
+Como um desenvolvedor de software, eu quero ter acesso a gráficos detalhados que mostrem a distribuição do uso da CPU por processo, para poder identificar áreas específicas do código do software CBTC que exigem otimização e aprimoramento, visando aprimorar a estabilidade e o desempenho geral do sistema.
