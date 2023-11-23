@@ -83,15 +83,15 @@ class DadosRepositorios {
 
         var rowComponentes = jdbcTemplate.update(
             """
-                insert into especificacao (idprocesso,identificador, fabricante,frequencia,microarquitetura, fk_componente_especificacao , fk_maquina_especificacao, fk_empresa_especificacao) values
-                (${novoProcessador.id},'${novoProcessador.identificador}','${novoProcessador.frabricante}','${novoProcessador.frequencia}','${novoProcessador.microarquitetura}',6,$id_maquina,$fk_empresa)
+                insert into especificacao (id_especificacao,identificador, fabricante,frequencia,microarquitetura, fk_componente_especificacao , fk_maquina_especificacao, fk_empresa_especificacao) values
+                (${novoProcessador.id},'${novoProcessador.identificador}','${novoProcessador.frabricante}','${novoProcessador.frequencia}','${novoProcessador.microarquitetura}',2,$id_maquina,$fk_empresa)
             """
         );
 
         var rowMonitoramento = jdbcTemplate.update(
             """
                 insert into monitoramento (dado_coletado, data_hora, descricao, fk_componentes_monitoramento, fk_maquina_monitoramento, fk_empresa_monitoramento, fk_unidade_medida) values
-                (?,?,"cpu individual marcos",6,$id_maquina,$fk_empresa,2)
+                (?,?,"cpu individual marcos",2,$id_maquina,$fk_empresa,2)
             """,
             novoProcessador.uso,
             novoProcessador.dataHora

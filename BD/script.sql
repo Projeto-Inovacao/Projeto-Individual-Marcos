@@ -2,7 +2,6 @@ DROP DATABASE nocline;
 CREATE DATABASE nocline;
 USE nocline;
 
-
 CREATE TABLE IF NOT EXISTS empresa(
   id_empresa INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
   razao_social VARCHAR(150) NOT NULL,
@@ -109,8 +108,9 @@ CREATE TABLE IF NOT EXISTS maquina (
   modelo VARCHAR(45) NULL,
   setor CHAR(3) NULL,
   status_maquina tinyint,
+  data_hora_inicializacao datetime,
   fk_empresaM INT NOT NULL,
-  fk_linhaM INT NOT NULL,
+  fk_linhaM INT NULL,
   CONSTRAINT pk_maquina
     PRIMARY KEY (id_maquina, fk_empresaM),
   CONSTRAINT fk_maquina_empresa
@@ -120,6 +120,8 @@ CREATE TABLE IF NOT EXISTS maquina (
     FOREIGN KEY (fk_linhaM)
     REFERENCES linha (id_linha)
 );
+-- alter table maquina add column data_hora_inicializacao datetime;
+-- alter table maquina modify column fk_linhaM INT NULL;
 
 CREATE TABLE IF NOT EXISTS controle_acesso (
   fk_colaborador INT NOT NULL,
@@ -152,19 +154,16 @@ CREATE TABLE IF NOT EXISTS janela (
 -- alter table processos add column nome_processo varchar(200) after pid;
 
 CREATE TABLE IF NOT EXISTS processos (
-  id_processos int PRIMARY KEY auto_increment NOT NULL,
-  pid INT NULL,
-  data_hora DATETIME NULL,
+  pid INT PRIMARY KEY NOT NULL,
   nome_processo varchar(200),
   uso_cpu DOUBLE NULL,
   uso_memoria DOUBLE NULL,
-  uso_disco  DOUBLE NULL,
   memoria_virtual DOUBLE NULL,
   status_abertura TINYINT NULL,
   gravacao_disco double NULL, 
   temp_execucao double NULL, 
-  fk_maquinaP INT NULL,
-  fk_empresaP INT NULL,
+  fk_maquinaP INT NOT NULL,
+  fk_empresaP INT NOT NULL,
   CONSTRAINT fk_maq_empP
     FOREIGN KEY (fk_maquinaP, fk_empresaP)
     REFERENCES maquina (id_maquina, fk_empresaM)
@@ -187,17 +186,13 @@ CREATE TABLE IF NOT EXISTS metrica (
     FOREIGN KEY (fk_unidade_medida)
     REFERENCES unidade_medida (id_unidade));
 
+
 CREATE TABLE IF NOT EXISTS componente (
   id_componente INT NOT NULL AUTO_INCREMENT,
-  data_hora DATETIME NULL,
-  nome_componente VARCHAR(300)NULL,
-  fabricante VARCHAR(200) NULL,
-  identificador VARCHAR(200) NULL,
-  frequencia LONG NULL,
-  microarquitetura varchar(200) NULL,
+  nome_componente VARCHAR(45) NULL,
   fk_maquina_componente INT NOT NULL,
   fk_empresa_componente INT NOT NULL,
-  fk_metrica_componente INT NOT NULL,
+  fk_metrica_componente INT NULL,
   CONSTRAINT pk_componente
     PRIMARY KEY (id_componente, fk_maquina_componente, fk_empresa_componente),
   CONSTRAINT fk_maq_empC
@@ -207,8 +202,26 @@ CREATE TABLE IF NOT EXISTS componente (
     FOREIGN KEY (fk_metrica_componente)
     REFERENCES metrica (id_metrica)
 );
-ALTER TABLE componente MODIFY COLUMN frequencia LONG;
-ALTER TABLE componente MODIFY COLUMN nome_componente VARCHAR(300);
+-- alter table componente modify column fk_metrica_componente INT NULL;
+
+CREATE TABLE IF NOT EXISTS especificacao(
+  idprocesso INT NOT NULL AUTO_INCREMENT,
+  id_especificacao INT,
+  identificador VARCHAR(200) NULL,
+  fabricante VARCHAR(45) NULL,
+  frequencia MEDIUMTEXT NULL,
+  microarquitetura VARCHAR(45) NULL,
+  fk_componente_especificacao INT NOT NULL,
+  fk_maquina_especificacao INT NOT NULL,
+  fk_empresa_especificacao INT NOT NULL,
+CONSTRAINT pk_especificacao
+  PRIMARY KEY (idprocesso,id_especificacao, fk_componente_especificacao, fk_maquina_especificacao, fk_empresa_especificacao),
+  CONSTRAINT fk_especificacao_componente1
+    FOREIGN KEY (fk_componente_especificacao , fk_maquina_especificacao, fk_empresa_especificacao)
+    REFERENCES componente (id_componente, fk_maquina_componente , fk_empresa_componente)
+);
+-- alter table especificacao modify column id_monitoramento INT NOT NULL AUTO_INCREMENT;
+
 
 CREATE TABLE IF NOT EXISTS monitoramento (
   id_monitoramento INT NOT NULL AUTO_INCREMENT,
@@ -251,7 +264,6 @@ CONSTRAINT fk_alerta_unidade_medida
     FOREIGN KEY (fk_unidade_medida_alerta)
     REFERENCES unidade_medida (id_unidade)
     );
-
 
 DELIMITER //
 CREATE TRIGGER trigger_alerta AFTER INSERT ON monitoramento FOR EACH ROW
