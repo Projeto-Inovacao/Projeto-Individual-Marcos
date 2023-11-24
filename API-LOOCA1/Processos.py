@@ -1,3 +1,4 @@
+
 import time
 import psutil
 import mysql.connector
@@ -66,3 +67,6 @@ conexao.close()
         #print(f"PID: {info2['pid']}, Nome: {info2['name']}, Utilização do Disco: {info2['io_counters'].write_bytes / (1024 * 1024)} MB")
     #except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
         #pass
+
+ 
+        

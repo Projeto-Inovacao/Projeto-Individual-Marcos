@@ -35,10 +35,6 @@ fun main() {
             val novoProcesso = repositorio.capturarDadosP(looca)
             repositorio.cadastrarProcesso(novoProcesso, id_maquina, fk_empresa)
 
-            // CAPTURA DE JANELAS
-            val novaJanela = repositorio.capturarDadosJ(looca)
-            repositorio.cadastrarJanela(novaJanela, id_maquina, fk_empresa)
-
             var dadosProcessador = repositorio.capturarDadosProcessador(looca)
             repositorio.cadastrarProcessador(dadosProcessador, id_maquina, fk_empresa)
 

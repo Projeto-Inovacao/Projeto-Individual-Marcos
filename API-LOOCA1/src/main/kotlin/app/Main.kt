@@ -40,10 +40,6 @@ open class Main {
                     val novoProcesso = repositorio.capturarDadosP(looca)
                     repositorio.cadastrarProcesso(novoProcesso, id_maquina, fk_empresa)
 
-                    // CAPTURA DE JANELAS
-                    val novaJanela = repositorio.capturarDadosJ(looca)
-                    repositorio.cadastrarJanela(novaJanela, id_maquina, fk_empresa)
-
                     val dadosProcessador = repositorio.capturarDadosProcessador(looca)
                     repositorio.cadastrarProcessador(dadosProcessador, id_maquina, fk_empresa)
 
