@@ -36,6 +36,7 @@ open class Main {
 
                 JOptionPane.showConfirmDialog(null, "O monitoramento irá inicializar agora!")
                 while (true) {
+
                     //CAPTURA DE PROCESSOS
                     val novoProcesso = repositorio.capturarDadosP(looca)
                     repositorio.cadastrarProcesso(novoProcesso, id_maquina, fk_empresa)
