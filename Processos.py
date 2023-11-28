@@ -6,8 +6,8 @@ from datetime import datetime
 # Configuração da conexão com o MySQL
 conexao = mysql.connector.connect(
     host='localhost',
-    user='root',
-    password='Marnn111',
+    user='aluno',
+    password='sptech',
     database='nocLine'
 )
 
