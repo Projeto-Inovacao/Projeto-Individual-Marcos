@@ -22,8 +22,8 @@ class DadosRepositorios {
 
         var rowComponentes = jdbcTemplate.update(
             """
-                insert into especificacao (id_especificacao,identificador, fabricante,frequencia,microarquitetura, fk_componente_especificacao , fk_maquina_especificacao, fk_empresa_especificacao) values
-                (${novoProcessador.id},'${novoProcessador.identificador}','${novoProcessador.frabricante}','${novoProcessador.frequencia}','${novoProcessador.microarquitetura}',2,$id_maquina,$fk_empresa)
+                insert into especificacao (id_especificacao,data_hora,identificador, fabricante,frequencia,microarquitetura, fk_componente_especificacao , fk_maquina_especificacao, fk_empresa_especificacao) values
+                (${novoProcessador.id},'${novoProcessador.dataHora}','${novoProcessador.identificador}','${novoProcessador.frabricante}','${novoProcessador.frequencia}','${novoProcessador.microarquitetura}',2,$id_maquina,$fk_empresa)
             """
         );
 
