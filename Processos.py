@@ -1,7 +1,14 @@
-import time
 import psutil
+import threading
+import time
+import keyboard
+import socket
+import pymssql
 import mysql.connector
+import json
+import requests
 from datetime import datetime
+from cred import usr, pswd  # Certifique-se de ter o módulo cred com as variáveis usr e pswd definidas
 
 # Configuração da conexão com o MySQL
 conexao = mysql.connector.connect(
@@ -79,21 +86,47 @@ def inserir_ou_atualizar_processo(processo):
         print(f"Falha ao inserir ou atualizar dados para o processo com PID {processo['pid']}: {err}")
         conexao.rollback()
 
+def inserir_dados_monitoramento(processo):
+    try:
+        mydb_server = pymssql.connect(server='52.22.58.174', database='nocline', user='sa', password='urubu100')
+
+        try:
+            mycursor_server = mydb_server.cursor()
+            sql_query_server = "SELECT id_maquina, fk_empresaM FROM maquina WHERE hostname = %s;"
+            mycursor_server.execute(sql_query_server, (hostname,))
+            result = mycursor_server.fetchone()
+
+            if result:
+                try:
+                    if conexao.is_connected():
+                        sql_query = "INSERT INTO processos (pid, data_hora, nome_processo, uso_cpu, gravacao_disco, fk_maquinaP, fk_empresaP) VALUES (%s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE data_hora = %s, nome_processo = %s, uso_cpu = %s, gravacao_disco = %s, fk_maquinaP = %s, fk_empresaP = %s"
+                        val = (processo['pid'], data_hora, processo['nome'], processo['uso_cpu'], processo['uso_disco'], 1, 1, data_hora, processo['nome'], processo['uso_cpu'], processo['uso_disco'], 1, 1)
+                        cursor.execute(sql_query, val)
+                        conexao.commit()
+                        print(cursor.rowcount, "registros inseridos no banco")
+                        print("\r\n")
+                    else:
+                        print("Não foi possível conectar ao banco.")
+                except mysql.connector.Error as e:
+                    print("Erro ao inserir dados no banco:", e)
+            else:
+                print("Resultado não encontrado.")
+        finally:
+            mycursor_server.close()
+            mydb_server.close()
+    except pymssql.OperationalError as e:
+        print("Erro ao conectar com o servidor MySQLServer:", e)
+
 # Exemplo de uso
 while True:
-    # Calcula o uso total da CPU antes de obter informações do processo
     uso_cpu_anterior = psutil.cpu_percent()
-
     processos_info = obter_info_processos()
-
     print(f"Uso de CPU total antes do loop: {uso_cpu_anterior}%")
 
     for processo in processos_info:
-        # Calcula o uso da CPU relativo ao intervalo desde a última medição
         uso_cpu_processo = processo['uso_cpu']
-
-        # Exemplo de inserção ou atualização por PID
         inserir_ou_atualizar_processo(processo)
+        inserir_dados_monitoramento(processo)
 
     # Exemplo de consulta por PID (substitua 1234 pelo PID desejado)
     consultar_processo_por_pid(4)
