@@ -96,7 +96,7 @@ while True:
         inserir_ou_atualizar_processo(processo)
 
     # Exemplo de consulta por PID (substitua 1234 pelo PID desejado)
-    consultar_processo_por_pid(1234)
+    consultar_processo_por_pid(4)
 
     # Aguarda 10 segundos antes da próxima iteração
     time.sleep(10)
