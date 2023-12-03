@@ -105,18 +105,18 @@ def inserir_dados_monitoramento(processo):
     sql_query = (
         "MERGE INTO processos AS target "
         "USING (VALUES (%s, %s, %s, %s, %s, %s, %s)) AS source "
-        "(pid, data_hora, nome_processo, uso_cpu, gravacao_disco, fk_maquinaP, fk_empresaP) "
+        "(pid, nome_processo, uso_cpu, gravacao_disco, fk_maquinaP, fk_empresaP,data_hora) "
         "ON target.pid = (SELECT pid FROM processos WHERE pid = %s) "
         "WHEN MATCHED THEN "
         "UPDATE SET "
-        "data_hora = source.data_hora, "
         "nome_processo = source.nome_processo, "
         "uso_cpu = source.uso_cpu, "
         "gravacao_disco = source.gravacao_disco, "
         "fk_maquinaP = source.fk_maquinaP, "
         "fk_empresaP = source.fk_empresaP "
+        "data_hora = source.data_hora, "
         "WHEN NOT MATCHED THEN "
-        "INSERT (pid, data_hora, nome_processo, uso_cpu, gravacao_disco, fk_maquinaP, fk_empresaP) "
+        "INSERT (pid,nome_processo, uso_cpu, gravacao_disco, fk_maquinaP, fk_empresaP, data_hora) "
         "VALUES (%s, %s, %s, %s, %s, %s, %s);"
     )
 
