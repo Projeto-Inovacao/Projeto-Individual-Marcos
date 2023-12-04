@@ -1,6 +1,8 @@
+import java.text.SimpleDateFormat
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
- class Processador{
+class Processador{
     var id: Int = 0
     var nome: String = ""
     var frabricante: String = ""
@@ -9,5 +11,6 @@ import java.time.LocalDateTime
     var microarquitetura: String = ""
     var uso: Double = 0.0
     var dataHora = LocalDateTime.now()
+    val dataHoraFormatada = dataHora.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
 
 }

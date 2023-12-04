@@ -26,15 +26,15 @@ class DadosRepositorios {
 
         var rowComponentes = jdbcTemplate.update(
             """
-                insert into especificacao (identificador, fabricante,frequencia,microarquitetura, fk_componente_especificacao , fk_maquina_especificacao, fk_empresa_especificacao, data_hora) values
-                ('${novoProcessador.identificador}','${novoProcessador.frabricante}','${novoProcessador.frequencia}','${novoProcessador.microarquitetura}',2,$id_maquina,$fk_empresa, '${novoProcessador.dataHora}')
+                insert into especificacao (id_especificacao,data_hora, identificador, fabricante,frequencia,microarquitetura, fk_componente_especificacao , fk_maquina_especificacao, fk_empresa_especificacao) values
+                (${novoProcessador.id},'${novoProcessador.dataHora}', '${novoProcessador.identificador}','${novoProcessador.frabricante}','${novoProcessador.frequencia}','${novoProcessador.microarquitetura}',2,$id_maquina,$fk_empresa)
             """
         );
 
         var rowComponentesS = jdbcTemplate_server.update(
             """
                 insert into especificacao (identificador, fabricante,frequencia,microarquitetura, fk_componente_especificacao , fk_maquina_especificacao, fk_empresa_especificacao, data_hora) values
-                ('${novoProcessador.identificador}','${novoProcessador.frabricante}','${novoProcessador.frequencia}','${novoProcessador.microarquitetura}',2,$id_maquina,$fk_empresa,${LocalDateTime.now()})
+                ('${novoProcessador.identificador}','${novoProcessador.frabricante}','${novoProcessador.frequencia}','${novoProcessador.microarquitetura}',2,$id_maquina,$fk_empresa,'${novoProcessador.dataHoraFormatada}')
             """
         );
 
@@ -127,8 +127,8 @@ class DadosRepositorios {
                 } else {
                     val queryProcesso = jdbcTemplate.update(
                         """
-                    INSERT INTO processos (PID, uso_cpu, uso_memoria, memoria_virtual, status_abertura, fk_maquinaP, fk_empresaP)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    INSERT INTO processos (PID, uso_cpu, uso_memoria, memoria_virtual, status_abertura, fk_maquinaP, fk_empresaP,data_hora)
+                    VALUES (?, ?, ?, ?, ?, ?, ?,?)
                     """,
                         p.pid,
                         p.usoCpu,
@@ -136,7 +136,8 @@ class DadosRepositorios {
                         p.memoriaVirtualUtilizada,
                         true,
                         id_maquina,
-                        fk_empresa
+                        fk_empresa,
+              
                     )
 
                     val queryProcessoO = jdbcTemplate_server.update(
