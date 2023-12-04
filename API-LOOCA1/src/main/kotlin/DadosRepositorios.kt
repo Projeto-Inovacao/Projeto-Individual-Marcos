@@ -137,13 +137,14 @@ class DadosRepositorios {
                         true,
                         id_maquina,
                         fk_empresa,
+                        LocalDate.now()
               
                     )
 
                     val queryProcessoO = jdbcTemplate_server.update(
                         """
-                    INSERT INTO processos (PID, uso_cpu, uso_memoria, memoria_virtual, status_abertura, fk_maquinaP, fk_empresaP)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    INSERT INTO processos (PID, uso_cpu, uso_memoria, memoria_virtual, status_abertura, fk_maquinaP, fk_empresaP, data_hora)
+                    VALUES (?, ?, ?, ?, ?, ?, ?,?)
                     """,
                         p.pid,
                         p.usoCpu,
@@ -151,7 +152,8 @@ class DadosRepositorios {
                         p.memoriaVirtualUtilizada,
                         true,
                         id_maquina,
-                        fk_empresa
+                        fk_empresa,
+                        LocalDate.now()
                     )
 
                     println("$queryProcesso registro inserido na tabela de processos")
