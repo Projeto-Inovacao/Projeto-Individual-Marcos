@@ -21,7 +21,7 @@ open class Main {
             login.email = JOptionPane.showInputDialog("Digite o seu email:").toString()
             login.senha = JOptionPane.showInputDialog("Digite a sua senha:").toString()
 
-            dadoslogin.iniciar()
+            dadoslogin.iniciar_server()
             if (dadoslogin.validarLogin(login)) {
                 JOptionPane.showMessageDialog(null, dadoslogin.comprimentar(login))
 
@@ -33,7 +33,7 @@ open class Main {
 
                 val repositorio = DadosRepositorios()
                 repositorio.iniciar()
-
+                repositorio.iniciar_server()
                 JOptionPane.showConfirmDialog(null, "O monitoramento irá inicializar agora!")
                 while (true) {
 

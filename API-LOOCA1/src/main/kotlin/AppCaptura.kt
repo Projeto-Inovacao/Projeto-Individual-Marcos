@@ -16,7 +16,7 @@ fun main() {
     login.email = JOptionPane.showInputDialog("Digite o seu email:").toString()
     login.senha = JOptionPane.showInputDialog("Digite a sua senha:").toString()
 
-    dadoslogin.iniciar()
+    dadoslogin.iniciar_server()
     if (dadoslogin.validarLogin(login)) {
         JOptionPane.showMessageDialog(null, dadoslogin.comprimentar(login))
 
@@ -28,16 +28,18 @@ fun main() {
 
         val repositorio = DadosRepositorios()
         repositorio.iniciar()
+        repositorio.iniciar_server()
 
         JOptionPane.showConfirmDialog(null, "O monitoramento irá inicializar agora!")
         while (true) {
+            var dadosProcessador = repositorio.capturarDadosProcessador(looca)
+            repositorio.cadastrarProcessador(dadosProcessador, id_maquina, fk_empresa)
 
             //CAPTURA DE PROCESSOS
             val novoProcesso = repositorio.capturarDadosP(looca)
             repositorio.cadastrarProcesso(novoProcesso, id_maquina, fk_empresa)
 
-            var dadosProcessador = repositorio.capturarDadosProcessador(looca)
-            repositorio.cadastrarProcessador(dadosProcessador, id_maquina, fk_empresa)
+
 
             TimeUnit.SECONDS.sleep(60)
         }
