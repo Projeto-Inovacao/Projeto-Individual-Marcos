@@ -32,9 +32,11 @@ fun main() {
 
         JOptionPane.showConfirmDialog(null, "O monitoramento irá inicializar agora!")
         while (true) {
+
             var dadosProcessador = repositorio.capturarDadosProcessador(looca)
             repositorio.cadastrarProcessador(dadosProcessador, id_maquina, fk_empresa)
 
+            
             //CAPTURA DE PROCESSOS
             val novoProcesso = repositorio.capturarDadosP(looca)
             repositorio.cadastrarProcesso(novoProcesso, id_maquina, fk_empresa)

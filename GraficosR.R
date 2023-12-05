@@ -1,11 +1,14 @@
+library(ggplot2)
 
 #Gráfico de Linha de Uso do Processador ao Longo do Tempo:
-Processos <- na.omit(Processos[, c("data_hora", "uso_cpu")])
-Processos <- Processos[order(Processos$data_hora), ]
+Processos$data_hora <- as.POSIXct(Processos$data_hora, format="%Y-%m-%d %H:%M:%S")
 
-plot(Processos$data_hora, Processos$uso_cpu, type = "l", col = "blue", 
-     xlab = "Tempo", ylab = "Uso do Processador (%)", main = "Uso do Processador ao Longo do Tempo",
-     xlim = range(Processos$data_hora, na.rm = TRUE))
+ggplot(Processos, aes(x = data_hora, y = uso_cpu)) +
+  geom_line(color = "blue") +
+  labs(title = "Uso do Processador ao Longo do Tempo",
+       x = "Tempo",
+       y = "Uso do Processador (%)") +
+  theme_minimal()
 
 #-----------------------------------------------------------------------------------------------
 
@@ -29,8 +32,13 @@ pie(top7_processos_disco$gravacao_disco, labels = top7_processos_disco$nome_proc
 #-----------------------------------------------------------------------------------------------
 
 #Gráfico de Linha para Frequência do Processador ao Longo do Tempo:
-plot(Especificação$data_hora, Especificação$frequencia, type = "l", col = "red",
-     xlab = "Tempo", ylab = "Frequência do Processador (GHz)",
-     main = "Frequência do Processador ao Longo do Tempo")
+Especificacao$data_hora <- as.POSIXct(Especificacao$data_hora, format="%Y-%m-%d %H:%M:%S")
+
+ggplot(Especificacao, aes(x = data_hora, y = frequencia)) +
+  geom_line(color = "red") +
+  labs(title = "Frequência do Processador ao Longo do Tempo",
+       x = "Tempo",
+       y = "Frequência do Processador (GHz)") +
+  theme_minimal()
 
 

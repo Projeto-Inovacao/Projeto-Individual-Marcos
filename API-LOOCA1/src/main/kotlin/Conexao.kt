@@ -9,8 +9,8 @@ object Conexao {
                 val dataSource = BasicDataSource()
                 dataSource.driverClassName = "com.mysql.cj.jdbc.Driver"
                 dataSource.url= "jdbc:mysql://localhost:3306/nocline"
-                dataSource.username = "noc_line"
-                dataSource.password = "noc_line134#"
+                dataSource.username = "aluno"
+                dataSource.password = "sptech"
                 val novoJdbcTemplate = JdbcTemplate(dataSource)
                 field = novoJdbcTemplate
             }

@@ -1,0 +1,5 @@
+"id_Processo";"id_especificacao";"data_hora";"identificador";"fabricante";"frequencia";"microarquitetura";"fk_componente_especificacao";"fk_maquina_especificacao";"fk_empresa_especificacao"
+2;0;"2023-12-05 11:24:36";"Intel64 Family 6 Model 126 Stepping 5";"GenuineIntel";"1190000000";"Ice Lake (Client)";2;1;1
+3;0;"2023-12-05 13:47:38";"Intel64 Family 6 Model 126 Stepping 5";"GenuineIntel";"1190000000";"Ice Lake (Client)";2;1;1
+4;0;"2023-12-05 14:12:28";"Intel64 Family 6 Model 126 Stepping 5";"GenuineIntel";"1190000000";"Ice Lake (Client)";2;1;1
+5;0;"2023-12-05 14:20:50";"Intel64 Family 6 Model 126 Stepping 5";"GenuineIntel";"1190000000";"Ice Lake (Client)";2;1;1

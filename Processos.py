@@ -11,8 +11,8 @@ from datetime import datetime as dt
 # Configuração da conexão com o MySQL
 conexao = mysql.connector.connect(
     host='localhost',
-    user='noc_line',
-    password='noc_line134#',
+    user='aluno',
+    password='sptech',
     database='nocLine'
 )
 
